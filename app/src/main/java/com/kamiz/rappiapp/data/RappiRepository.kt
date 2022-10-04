@@ -1,4 +1,4 @@
-package com.kamiz.rappiapp.data.local
+package com.kamiz.rappiapp.data
 
 import com.kamiz.rappiapp.data.remote.RemoteDataSource
 

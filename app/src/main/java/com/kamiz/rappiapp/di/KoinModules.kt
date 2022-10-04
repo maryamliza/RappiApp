@@ -1,6 +1,6 @@
 package com.kamiz.rappiapp.di
 
-import com.kamiz.rappiapp.data.local.RappiRepository
+import com.kamiz.rappiapp.data.RappiRepository
 import com.kamiz.rappiapp.data.remote.RemoteDataSource
 import com.kamiz.rappiapp.data.remote.retrofit.RetrofitManager
 import com.kamiz.rappiapp.data.remote.retrofit.ServiceAPI
