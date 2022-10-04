@@ -14,5 +14,4 @@ val repositoryModule = module {
 }
 
 val viewModelsModule = module {
-    // Aqui iran lo viewmodels usando viewModel { SomeViewModel(get())}
 }
