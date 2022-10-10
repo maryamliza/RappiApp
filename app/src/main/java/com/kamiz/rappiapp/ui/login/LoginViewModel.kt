@@ -7,13 +7,18 @@ import com.kamiz.rappiapp.data.RappiRepository
 import kotlinx.coroutines.launch
 
 class LoginViewModel(
-    val repository: RappiRepository,
+    private val repository: RappiRepository,
 ) : ViewModel() {
     val tokenResponse: MutableLiveData<String> = MutableLiveData()
+    val error: MutableLiveData<String> = MutableLiveData()
 
     fun login(email: String, password: String) {
         viewModelScope.launch {
-            tokenResponse.value = repository.login(email, password)
+            try {
+                tokenResponse.value = repository.login(email, password)
+            } catch (e: Exception) {
+                error.value = "Wrong Credentials"
+            }
         }
     }
 }

@@ -35,6 +35,10 @@ class LoginFragment : BaseFragment() {
         viewModel.tokenResponse.observe(viewLifecycleOwner, Observer {
             Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
         })
+
+        viewModel.error.observe(viewLifecycleOwner, Observer {
+            Toast.makeText(context,it,Toast.LENGTH_SHORT).show()
+        })
     }
 
 
