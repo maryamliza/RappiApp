@@ -5,13 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import com.kamiz.rappiapp.R
 import com.kamiz.rappiapp.databinding.FragmentLoginBinding
+import com.kamiz.rappiapp.ui.base.BaseFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class LoginFragment : Fragment() {
+class LoginFragment : BaseFragment() {
     val viewModel: LoginViewModel by viewModel()
     private lateinit var binding: FragmentLoginBinding
 
@@ -23,13 +22,7 @@ class LoginFragment : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        setupObserver()
-        setupViews()
-    }
-
-    fun setupViews() {
+    override fun setupViews() {
         binding.btLogin.setOnClickListener {
             viewModel.login(
                 email = binding.etEmail.text.toString(),
@@ -38,7 +31,7 @@ class LoginFragment : Fragment() {
         }
     }
 
-    fun setupObserver() {
+    override fun setupObserver() {
         viewModel.tokenResponse.observe(viewLifecycleOwner, Observer {
             Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
         })

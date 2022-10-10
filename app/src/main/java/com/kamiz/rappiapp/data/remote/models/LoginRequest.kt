@@ -5,5 +5,4 @@ import com.google.gson.annotations.SerializedName
 class LoginRequest(
     @SerializedName("username") val email: String,
     val password: String,
-) {
-}
+)
