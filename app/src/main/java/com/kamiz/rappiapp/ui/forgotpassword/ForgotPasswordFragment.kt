@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.kamiz.rappiapp.databinding.FragmentForgotPasswordBinding
 import com.kamiz.rappiapp.ui.base.BaseFragment
-import com.kamiz.rappiapp.ui.login.LoginFragmentDirections
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ForgotPasswordFragment : BaseFragment() {
@@ -22,12 +21,9 @@ class ForgotPasswordFragment : BaseFragment() {
         return binding.root
     }
 
-    override fun setupObserver() {
-    }
-
     override fun setupViews() {
-        binding.back.setOnClickListener{
-            findNavController().navigate(ForgotPasswordFragmentDirections.actionForgotPasswordFragmentToLoginFragment())
+        binding.back.setOnClickListener {
+            findNavController().navigateUp()
         }
     }
 
