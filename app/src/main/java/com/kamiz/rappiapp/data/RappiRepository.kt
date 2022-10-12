@@ -8,4 +8,8 @@ class RappiRepository(
     suspend fun login(email: String, password: String): String {
         return  remote.login(email, password)
     }
+
+    suspend fun forgotPassword(email: String){
+        remote.forgotPassword(email)
+    }
 }
