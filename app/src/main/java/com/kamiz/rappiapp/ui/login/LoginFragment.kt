@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.kamiz.rappiapp.databinding.FragmentLoginBinding
 import com.kamiz.rappiapp.ui.base.BaseFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -29,6 +30,10 @@ class LoginFragment : BaseFragment() {
                 password = binding.etPassword.text.toString(),
             )
         }
+
+        binding.forgotPassword.setOnClickListener {
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToForgotPasswordFragment())
+        }
     }
 
     override fun setupObserver() {
@@ -40,6 +45,4 @@ class LoginFragment : BaseFragment() {
             Toast.makeText(context,it,Toast.LENGTH_SHORT).show()
         })
     }
-
-
 }
