@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.kamiz.rappiapp.databinding.FragmentForgotPasswordBinding
 import com.kamiz.rappiapp.ui.base.BaseFragment
+import com.kamiz.rappiapp.ui.login.LoginFragmentDirections
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ForgotPasswordFragment : BaseFragment() {
@@ -16,7 +18,6 @@ class ForgotPasswordFragment : BaseFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         binding = FragmentForgotPasswordBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -25,6 +26,9 @@ class ForgotPasswordFragment : BaseFragment() {
     }
 
     override fun setupViews() {
+        binding.back.setOnClickListener{
+            findNavController().navigate(ForgotPasswordFragmentDirections.actionForgotPasswordFragmentToLoginFragment())
+        }
     }
 
 }
