@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.kamiz.rappiapp.databinding.FragmentSplashBinding
 import com.kamiz.rappiapp.ui.base.BaseFragment
@@ -22,6 +23,15 @@ class SplashFragment : BaseFragment() {
     }
 
     override fun setupViews() {
-        findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToLoginFragment())
+    }
+
+    override fun setupObserver() {
+        viewModel.savedToken.observe(viewLifecycleOwner, Observer {
+            if (it!=null){
+                findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToHomeFragment())
+            } else{
+                findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToLoginFragment())
+            }
+        })
     }
 }
