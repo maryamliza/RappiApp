@@ -7,14 +7,14 @@ class RappiRepository(
     val remote: RemoteDataSource,
 ) {
     suspend fun login(email: String, password: String): String {
-        return  remote.login(email, password)
+        return remote.login(email, password)
     }
 
-    suspend fun forgotPassword(email: String){
+    suspend fun forgotPassword(email: String) {
         remote.forgotPassword(email)
     }
 
-    suspend fun getCategories():List<Category>{
+    suspend fun getCategories(): List<Category> {
         return remote.getCategories()
     }
 }

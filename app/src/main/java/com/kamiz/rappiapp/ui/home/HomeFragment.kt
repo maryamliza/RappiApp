@@ -22,10 +22,6 @@ class HomeFragment : BaseFragment() {
         return binding.root
     }
 
-    override fun setupViews() {
-
-    }
-
     override fun setupObserver() {
         viewModel.categoryList.observe(viewLifecycleOwner, Observer {
             binding.rcCategory.adapter = CategorytListAdapter(it)
