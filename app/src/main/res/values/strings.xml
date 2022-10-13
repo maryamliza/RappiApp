@@ -6,5 +6,6 @@
     <string name="email">Email</string>
     <string name="send">SEND</string>
     <string name="check_your_email">Check your email</string>
+    <string name="search_question">What do you want today?</string>
 
 </resources>
