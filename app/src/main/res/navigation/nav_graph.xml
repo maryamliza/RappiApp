@@ -8,5 +8,13 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.kamiz.rappiapp.ui.login.LoginFragment"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
+            app:destination="@id/forgotPasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.kamiz.rappiapp.ui.forgotpassword.ForgotPasswordFragment"
+        tools:layout="@layout/fragment_forgot_password" />
 </navigation>

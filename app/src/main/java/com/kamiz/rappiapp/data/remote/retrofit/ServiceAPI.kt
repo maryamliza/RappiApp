@@ -8,4 +8,8 @@ import retrofit2.http.POST
 interface ServiceAPI {
     @POST("login")
     suspend fun login(@Body body: LoginRequest): LoginResponse
+
+    @POST("forgotpassword")
+    suspend fun forgotPassword(@Body email:String):Any
+
 }
