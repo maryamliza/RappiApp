@@ -1,8 +1,12 @@
 package com.kamiz.rappiapp.data.remote.retrofit
 
-import com.kamiz.rappiapp.data.remote.models.LoginResponse
-import com.kamiz.rappiapp.data.remote.models.LoginRequest
+import com.kamiz.rappiapp.data.model.Category
+import com.kamiz.rappiapp.data.remote.responses.ForgotPasswordRequest
+import com.kamiz.rappiapp.data.remote.responses.LoginRequest
+import com.kamiz.rappiapp.data.remote.responses.LoginResponse
+import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface ServiceAPI {
@@ -10,6 +14,11 @@ interface ServiceAPI {
     suspend fun login(@Body body: LoginRequest): LoginResponse
 
     @POST("forgotpassword")
-    suspend fun forgotPassword(@Body email:String):Any
+    suspend fun forgotPassword(@Body body: ForgotPasswordRequest): Response<Any?>
+    // Response<Any?> is handling 204 response
+
+    @GET("categories")
+    suspend fun getCategories(): List<Category>
+
 
 }

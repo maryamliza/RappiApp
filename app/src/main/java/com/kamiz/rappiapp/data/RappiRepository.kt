@@ -1,5 +1,6 @@
 package com.kamiz.rappiapp.data
 
+import com.kamiz.rappiapp.data.model.Category
 import com.kamiz.rappiapp.data.remote.RemoteDataSource
 
 class RappiRepository(
@@ -11,5 +12,9 @@ class RappiRepository(
 
     suspend fun forgotPassword(email: String){
         remote.forgotPassword(email)
+    }
+
+    suspend fun getCategories():List<Category>{
+        return remote.getCategories()
     }
 }

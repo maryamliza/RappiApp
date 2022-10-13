@@ -1,4 +1,4 @@
-package com.kamiz.rappiapp.data.remote.models
+package com.kamiz.rappiapp.data.remote.responses
 
 import com.google.gson.annotations.SerializedName
 

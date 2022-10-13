@@ -24,6 +24,9 @@ class LoginFragment : BaseFragment() {
     }
 
     override fun setupViews() {
+
+        binding.etEmail.setText("test@test.com")
+        binding.etPassword.setText("1234")
         binding.btLogin.setOnClickListener {
             viewModel.login(
                 email = binding.etEmail.text.toString(),
@@ -38,8 +41,9 @@ class LoginFragment : BaseFragment() {
 
     override fun setupObserver() {
         viewModel.tokenResponse.observe(viewLifecycleOwner, Observer {
-            Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment())
         })
+
 
         viewModel.error.observe(viewLifecycleOwner, Observer {
             Toast.makeText(context,it,Toast.LENGTH_SHORT).show()

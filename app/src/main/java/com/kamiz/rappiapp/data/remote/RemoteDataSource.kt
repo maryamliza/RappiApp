@@ -1,10 +1,9 @@
 package com.kamiz.rappiapp.data.remote
 
-import com.kamiz.rappiapp.data.remote.models.LoginRequest
+import com.kamiz.rappiapp.data.model.Category
+import com.kamiz.rappiapp.data.remote.responses.ForgotPasswordRequest
+import com.kamiz.rappiapp.data.remote.responses.LoginRequest
 import com.kamiz.rappiapp.data.remote.retrofit.ServiceAPI
-import retrofit2.http.Body
-import retrofit2.http.POST
-import java.lang.Exception
 
 class RemoteDataSource(
     private val service: ServiceAPI
@@ -15,10 +14,27 @@ class RemoteDataSource(
         return response.token
     }
 
-    suspend fun forgotPassword(email: String){
+    suspend fun forgotPassword(email: String) {
+        val body = ForgotPasswordRequest(email)
+        service.forgotPassword(body)
+    }
+
+    suspend fun getCategories(): List<Category> {
         try {
-            service.forgotPassword(email)
-        } catch (e: Exception) {}
+            return service.getCategories()
+//            TODO: Remove when API ready
+        } catch (e: Exception) {
+            return listOf<Category>(
+                Category("Restaurante"),
+                Category("Supermercado"),
+                Category("Farmacia"),
+                Category("Turbo"),
+                Category("La Cesta Super"),
+                Category("RappiMall"),
+                Category("Licor"),
+                Category("Rappifavor"),
+            )
+        }
     }
 
 }
