@@ -16,9 +16,13 @@ class LoginViewModel(
         viewModelScope.launch {
             try {
                 tokenResponse.value = repository.login(email, password)
+                val token = tokenResponse.value?:""
+                repository.saveToken(token)
+
             } catch (e: Exception) {
                 error.value = "Wrong Credentials"
             }
         }
     }
+
 }
