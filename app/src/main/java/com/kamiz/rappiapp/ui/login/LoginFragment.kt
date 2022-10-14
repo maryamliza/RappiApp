@@ -28,10 +28,30 @@ class LoginFragment : BaseFragment() {
         binding.etEmail.setText("test@test.com")
         binding.etPassword.setText("1234")
         binding.btLogin.setOnClickListener {
-            viewModel.login(
+
+            val error = viewModel.checkForErrors(
                 email = binding.etEmail.text.toString(),
                 password = binding.etPassword.text.toString(),
             )
+
+            if (error == null) {
+                viewModel.login(
+                    email = binding.etEmail.text.toString(),
+                    password = binding.etPassword.text.toString(),
+                )
+            } else {
+                Toast.makeText(context, error, Toast.LENGTH_SHORT).show()
+            }
+
+
+//            if (loginValid) {
+//                viewModel.login(
+//                    email = binding.etEmail.text.toString(),
+//                    password = binding.etPassword.text.toString(),
+//                )
+//            } else {
+//                Toast.makeText(context, "Invalid format", Toast.LENGTH_SHORT).show()
+//            }
         }
 
         binding.forgotPassword.setOnClickListener {
@@ -46,7 +66,7 @@ class LoginFragment : BaseFragment() {
 
 
         viewModel.error.observe(viewLifecycleOwner, Observer {
-            Toast.makeText(context,it,Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
         })
     }
 }

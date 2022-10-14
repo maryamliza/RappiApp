@@ -24,4 +24,23 @@ class LoginViewModel(
         }
     }
 
+    fun checkForErrors(email: String, password: String): String? {
+        if (email.isEmpty()) {
+            // email vacio
+            return "email vacio"
+        } else if (!email.contains("@")) {
+            // email no tenga @
+            return "email no tiene @"
+        } else if (password.isEmpty()) {
+            // password este vacio
+            return "password vacio"
+        } else if (password.length < 6) {
+            // password tenga menos de 6 caracteres
+            return "password tiene menos de 6 caracteres"
+        } else {
+            // esta toodo bien mano. Todod xvr!
+            return null
+        }
+    }
+
 }
