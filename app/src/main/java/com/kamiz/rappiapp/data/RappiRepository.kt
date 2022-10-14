@@ -5,11 +5,13 @@ import com.kamiz.rappiapp.data.model.Category
 import com.kamiz.rappiapp.data.remote.RemoteDataSource
 
 class RappiRepository(
-    val remote: RemoteDataSource,
-    val local: LocalDataSource,
+    private val remote: RemoteDataSource,
+    private val local: LocalDataSource,
 ) {
     suspend fun login(email: String, password: String): String {
-        return remote.login(email, password)
+        val token = remote.login(email, password)
+        local.saveToken(token)
+        return token
     }
 
     suspend fun forgotPassword(email: String) {
@@ -18,10 +20,6 @@ class RappiRepository(
 
     suspend fun getCategories(): List<Category> {
         return remote.getCategories()
-    }
-
-    fun saveToken(token: String) {
-        local.saveToken(token)
     }
 
     fun getToken(): String? {
