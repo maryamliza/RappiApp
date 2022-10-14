@@ -15,10 +15,13 @@ class LoginViewModel(
     fun login(email: String, password: String) {
         viewModelScope.launch {
             try {
-                tokenResponse.value = repository.login(email, password)
+                val token = repository.login(email, password)
+                tokenResponse.value = token
+
             } catch (e: Exception) {
                 error.value = "Wrong Credentials"
             }
         }
     }
+
 }
