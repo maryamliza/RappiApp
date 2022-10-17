@@ -7,5 +7,9 @@
     <string name="send">SEND</string>
     <string name="check_your_email">Check your email</string>
     <string name="search_question">What do you want today?</string>
+    <string name="user_name">User name</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="sign_up">SIGN UP</string>
 
 </resources>

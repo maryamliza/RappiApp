@@ -25,4 +25,8 @@ class RappiRepository(
     fun getToken(): String? {
         return local.getToken()
     }
+
+    fun createNewUser() {
+        TODO("Not yet implemented")
+    }
 }

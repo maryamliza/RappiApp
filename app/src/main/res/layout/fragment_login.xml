@@ -87,6 +87,19 @@
         app:layout_constraintEnd_toEndOf="@id/password"
         app:layout_constraintTop_toBottomOf="@id/password" />
 
+    <TextView
+        android:id="@+id/createNewUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:drawableEnd="@drawable/ic_next"
+        android:drawablePadding="8dp"
+        android:drawableTint="@color/primary"
+        android:text="Create new user"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@id/forgotPassword"
+        app:layout_constraintTop_toBottomOf="@id/forgotPassword" />
+
     <Button
         android:id="@+id/bt_login"
         android:layout_width="match_parent"
@@ -96,7 +109,7 @@
         android:background="@drawable/rounded_button"
         android:text="LOGIN"
         app:layout_constraintStart_toStartOf="@id/password"
-        app:layout_constraintTop_toBottomOf="@id/forgotPassword" />
+        app:layout_constraintTop_toBottomOf="@id/createNewUser" />
 
     <TextView
         android:id="@+id/textSocial"
