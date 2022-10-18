@@ -37,4 +37,8 @@ class RemoteDataSource(
         }
     }
 
+    suspend fun createNewUser() {
+         service.createNewUser()
+    }
+
 }

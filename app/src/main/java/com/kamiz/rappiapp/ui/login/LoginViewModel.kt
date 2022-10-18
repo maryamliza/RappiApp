@@ -10,37 +10,47 @@ class LoginViewModel(
     private val repository: RappiRepository,
 ) : ViewModel() {
     val tokenResponse: MutableLiveData<String> = MutableLiveData()
-    val error: MutableLiveData<String> = MutableLiveData()
+    val showErrorToast: MutableLiveData<String> = MutableLiveData()
 
     fun login(email: String, password: String) {
         viewModelScope.launch {
             try {
                 val token = repository.login(email, password)
                 tokenResponse.value = token
-
             } catch (e: Exception) {
-                error.value = "Wrong Credentials"
+                showErrorToast.value = "Wrong Credentials"
             }
         }
     }
 
-    fun checkForErrors(email: String, password: String): String? {
-        if (email.isEmpty()) {
-            // email vacio
-            return "email vacio"
+    fun tryLogin(email: String, password: String) {
+
+        val errorMessage = if (email.isEmpty()) {
+            "email vacio"
         } else if (!email.contains("@")) {
-            // email no tenga @
-            return "email no tiene @"
+            "email no tiene @"
         } else if (password.isEmpty()) {
-            // password este vacio
-            return "password vacio"
+            "password vacio"
         } else if (password.length < 6) {
-            // password tenga menos de 6 caracteres
-            return "password tiene menos de 6 caracteres"
+            "password tiene menos de 6 caracteres"
         } else {
-            // esta toodo bien mano. Todod xvr!
-            return null
+            null
         }
+
+//        val errorMessage = when {
+//            email.isEmpty() -> "email vacio"
+//            !email.contains("@") -> "email no tiene @"
+//            password.isEmpty() -> "password vacio"
+//            password.length < 6 -> "password tiene menos de 6 caracteres"
+//            else -> null
+//        }
+
+        if (errorMessage != null) {
+            showErrorToast.value = errorMessage
+        } else {
+            login(email = email, password = password)
+        }
+
     }
 
 }

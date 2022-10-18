@@ -20,5 +20,8 @@ interface ServiceAPI {
     @GET("categories")
     suspend fun getCategories(): List<Category>
 
+    @POST("signup")
+    suspend fun createNewUser():Response<Any>
+
 
 }

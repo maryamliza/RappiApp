@@ -17,6 +17,9 @@
             app:destination="@id/homeFragment"
             app:popUpTo="@id/splashFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loginFragment_to_newUserFragment"
+            app:destination="@id/newUserFragment" />
     </fragment>
     <fragment
         android:id="@+id/forgotPasswordFragment"
@@ -42,4 +45,8 @@
             app:popUpTo="@id/splashFragment"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/newUserFragment"
+        android:name="com.kamiz.rappiapp.ui.newuser.NewUserFragment"
+        tools:layout="@layout/fragment_new_user" />
 </navigation>

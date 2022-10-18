@@ -25,4 +25,8 @@ class RappiRepository(
     fun getToken(): String? {
         return local.getToken()
     }
+
+    suspend fun createNewUser(){
+      remote.createNewUser()
+    }
 }

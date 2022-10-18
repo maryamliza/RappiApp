@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.kamiz.rappiapp.databinding.FragmentLoginBinding
 import com.kamiz.rappiapp.ui.base.BaseFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -26,36 +27,20 @@ class LoginFragment : BaseFragment() {
     override fun setupViews() {
 
         binding.etEmail.setText("test@test.com")
-        binding.etPassword.setText("1234")
+        binding.etPassword.setText("123456Ml!")
         binding.btLogin.setOnClickListener {
-
-            val error = viewModel.checkForErrors(
+            viewModel.tryLogin(
                 email = binding.etEmail.text.toString(),
                 password = binding.etPassword.text.toString(),
             )
-
-            if (error == null) {
-                viewModel.login(
-                    email = binding.etEmail.text.toString(),
-                    password = binding.etPassword.text.toString(),
-                )
-            } else {
-                Toast.makeText(context, error, Toast.LENGTH_SHORT).show()
-            }
-
-
-//            if (loginValid) {
-//                viewModel.login(
-//                    email = binding.etEmail.text.toString(),
-//                    password = binding.etPassword.text.toString(),
-//                )
-//            } else {
-//                Toast.makeText(context, "Invalid format", Toast.LENGTH_SHORT).show()
-//            }
         }
 
         binding.forgotPassword.setOnClickListener {
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToForgotPasswordFragment())
+
+        }
+        binding.createNewUser.setOnClickListener {
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToNewUserFragment())
         }
     }
 
@@ -65,8 +50,9 @@ class LoginFragment : BaseFragment() {
         })
 
 
-        viewModel.error.observe(viewLifecycleOwner, Observer {
-            Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
+        viewModel.showErrorToast.observe(viewLifecycleOwner, Observer {
+//            Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
+            Snackbar.make(binding.root, it, Snackbar.LENGTH_LONG).show()
         })
     }
 }
