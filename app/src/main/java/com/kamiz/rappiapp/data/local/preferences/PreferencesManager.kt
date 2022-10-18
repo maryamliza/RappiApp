@@ -17,6 +17,7 @@ class PreferencesManager(
         sharedPrefs.edit().putString(TOKEN_KEY, token).apply()
     }
 
+
     companion object {
         private const val PREFS_NAME = "rappiapppreferences"
         private const val TOKEN_KEY = "TOKEN"

@@ -26,7 +26,7 @@ class RappiRepository(
         return local.getToken()
     }
 
-    fun createNewUser() {
-        TODO("Not yet implemented")
+    suspend fun createNewUser(){
+      remote.createNewUser()
     }
 }

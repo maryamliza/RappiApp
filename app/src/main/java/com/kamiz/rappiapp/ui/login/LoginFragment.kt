@@ -27,7 +27,7 @@ class LoginFragment : BaseFragment() {
     override fun setupViews() {
 
         binding.etEmail.setText("test@test.com")
-        binding.etPassword.setText("1234")
+        binding.etPassword.setText("123456Ml!")
         binding.btLogin.setOnClickListener {
             viewModel.tryLogin(
                 email = binding.etEmail.text.toString(),
