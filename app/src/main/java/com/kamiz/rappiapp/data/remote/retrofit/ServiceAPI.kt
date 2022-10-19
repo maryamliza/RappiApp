@@ -1,6 +1,7 @@
 package com.kamiz.rappiapp.data.remote.retrofit
 
 import com.kamiz.rappiapp.data.model.Category
+import com.kamiz.rappiapp.data.model.Product
 import com.kamiz.rappiapp.data.remote.responses.ForgotPasswordRequest
 import com.kamiz.rappiapp.data.remote.responses.LoginRequest
 import com.kamiz.rappiapp.data.remote.responses.LoginResponse
@@ -23,5 +24,7 @@ interface ServiceAPI {
     @POST("signup")
     suspend fun createNewUser():Response<Any>
 
+    @GET("search")
+    suspend fun searchText(searchWord:String):List<Product>
 
 }

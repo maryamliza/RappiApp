@@ -1,26 +1,20 @@
-package com.kamiz.rappiapp.ui.home
+package com.kamiz.rappiapp.ui.search
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kamiz.rappiapp.data.RappiRepository
-import com.kamiz.rappiapp.data.model.Category
+import com.kamiz.rappiapp.data.model.Product
 import kotlinx.coroutines.launch
 
-class HomeViewModel(
+class SearchViewModel(
     private val repository: RappiRepository,
 ) : ViewModel() {
-    val categoryList: MutableLiveData<List<Category>> = MutableLiveData(listOf())
+    val productList : MutableLiveData<List<Product>> = MutableLiveData()
 
-    init {
-        getCategories()
-    }
-
-    fun getCategories(){
+    fun searchText(searchWord: String) {
         viewModelScope.launch {
-            categoryList.value = repository.getCategories()
+             productList.value = repository.searchText(searchWord)
         }
     }
-
-
 }

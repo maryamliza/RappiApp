@@ -1,6 +1,7 @@
 package com.kamiz.rappiapp.data.remote
 
 import com.kamiz.rappiapp.data.model.Category
+import com.kamiz.rappiapp.data.model.Product
 import com.kamiz.rappiapp.data.remote.responses.ForgotPasswordRequest
 import com.kamiz.rappiapp.data.remote.responses.LoginRequest
 import com.kamiz.rappiapp.data.remote.retrofit.ServiceAPI
@@ -38,7 +39,24 @@ class RemoteDataSource(
     }
 
     suspend fun createNewUser() {
-         service.createNewUser()
+        service.createNewUser()
     }
+
+    suspend fun searchText(searchWord: String): List<Product> {
+        try {
+            return service.searchText(searchWord)
+        } catch (e: java.lang.Exception) {
+            return if (searchWord == "") listOf()
+            else listOf<Product>(
+                Product("Gelatina roja"),
+                Product("Gelatina amarilla"),
+                Product("Gelatina verde"),
+                Product("Gelatina naranja"),
+                Product("Gelatina rosada"),
+                Product("Gelatina morada"),
+            )
+        }
+    }
+
 
 }
