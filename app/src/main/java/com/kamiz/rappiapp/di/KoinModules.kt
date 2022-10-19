@@ -10,6 +10,7 @@ import com.kamiz.rappiapp.ui.forgotpassword.ForgotPasswordViewModel
 import com.kamiz.rappiapp.ui.home.HomeViewModel
 import com.kamiz.rappiapp.ui.login.LoginViewModel
 import com.kamiz.rappiapp.ui.newuser.NewUserViewModel
+import com.kamiz.rappiapp.ui.search.SearchViewModel
 import com.kamiz.rappiapp.ui.splash.SplashViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -32,5 +33,6 @@ val viewModelsModule = module {
     viewModel { HomeViewModel(get()) }
     viewModel { SplashViewModel(get()) }
     viewModel { NewUserViewModel(get()) }
+    viewModel { SearchViewModel(get()) }
 
 }

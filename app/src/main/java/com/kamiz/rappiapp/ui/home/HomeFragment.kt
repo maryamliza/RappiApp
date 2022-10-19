@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import com.kamiz.rappiapp.data.model.Category
+import androidx.navigation.fragment.findNavController
 import com.kamiz.rappiapp.databinding.FragmentHomeBinding
 import com.kamiz.rappiapp.ui.base.BaseFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -26,6 +26,12 @@ class HomeFragment : BaseFragment() {
         viewModel.categoryList.observe(viewLifecycleOwner, Observer {
             binding.rcCategory.adapter = CategorytListAdapter(it)
         })
+    }
+
+    override fun setupViews() {
+        binding.search.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToSearchFragment())
+        }
     }
 
 }

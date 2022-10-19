@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.kamiz.rappiapp.ui.login.LoginFragment"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
             app:destination="@id/forgotPasswordFragment" />
@@ -28,8 +28,11 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.kamiz.rappiapp.ui.home.HomeFragment"
-        tools:layout="@layout/fragment_home"
-         />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.kamiz.rappiapp.ui.splash.SplashFragment"
@@ -49,4 +52,8 @@
         android:id="@+id/newUserFragment"
         android:name="com.kamiz.rappiapp.ui.newuser.NewUserFragment"
         tools:layout="@layout/fragment_new_user" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.kamiz.rappiapp.ui.search.SearchFragment"
+        tools:layout="@layout/fragment_search" />
 </navigation>
