@@ -32,6 +32,8 @@ class SearchFragment : BaseFragment() {
             findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToCartFragment())
         }
 
+        binding.etSearch.requestFocus()
+
     }
 
     override fun setupObserver() {
