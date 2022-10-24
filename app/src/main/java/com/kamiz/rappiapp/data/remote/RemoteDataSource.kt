@@ -124,7 +124,20 @@ class RemoteDataSource(
 
 
     suspend fun addProduct(productId: String): Cart {
-        return service.addProduct(productId)
+        try {
+            return service.addProduct(productId)
+        } catch (e: Exception) {
+            return Cart(
+                listOf<ProductItem>(
+                    ProductItem(TEST_PRODUCT_1, 2),
+                    ProductItem(TEST_PRODUCT_2, 2),
+                    ProductItem(TEST_PRODUCT_3, 3),
+                    ProductItem(TEST_PRODUCT_4, 4),
+                    ProductItem(TEST_PRODUCT_5, 5),
+                    ProductItem(TEST_PRODUCT_6, 6),
+                )
+            )
+        }
     }
 
     suspend fun getCart(): Cart {
