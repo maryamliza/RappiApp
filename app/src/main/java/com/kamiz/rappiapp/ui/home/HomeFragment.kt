@@ -29,6 +29,7 @@ class HomeFragment : BaseFragment() {
     }
 
     override fun setupViews() {
+
         binding.search.setOnClickListener {
             findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToSearchFragment())
         }
@@ -36,7 +37,6 @@ class HomeFragment : BaseFragment() {
         binding.btCart.setOnClickListener{
             findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToCartFragment())
         }
-
 
     }
 

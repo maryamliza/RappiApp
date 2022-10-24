@@ -34,6 +34,7 @@ class CartFragment : BaseFragment() {
         binding.back.setOnClickListener {
             findNavController().popBackStack()
         }
+
     }
 
     override fun setupObserver() {

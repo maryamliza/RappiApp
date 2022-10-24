@@ -24,12 +24,15 @@
         android:layout_marginHorizontal="14dp"
         android:layout_marginTop="16dp"
         app:boxStrokeWidth="0dp"
+        app:endIconDrawable="@drawable/ic_search"
+        app:endIconMode="custom"
         app:boxStrokeWidthFocused="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bt_cart">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_search"
+            android:hint="@string/search_question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/white" />
