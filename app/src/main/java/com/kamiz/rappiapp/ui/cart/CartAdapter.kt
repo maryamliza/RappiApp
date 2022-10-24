@@ -10,7 +10,7 @@ import com.kamiz.rappiapp.di.viewModelsModule
 
 class CartAdapter(
     val objList: List<ProductItem>,
-    val addProductItem: (String) -> Unit,
+//    val addProductItem: (String) -> Unit,
 //    val removeProductItem: (String) -> Unit,
 
 ) : RecyclerView.Adapter<CartAdapter.ViewHolder>() {
@@ -33,8 +33,11 @@ class CartAdapter(
             .into(binding.image)
         binding.productQuantity.text = obj.quantity.toString()
 
+        val finalPrice = obj.product.price*obj.quantity
+        binding.price.text = "Price: $${finalPrice.toString()}"
+
         binding.btAdd.setOnClickListener{
-            addProductItem(obj.product.id)
+//            addProductItem(obj.product.id)
         }
 
     }

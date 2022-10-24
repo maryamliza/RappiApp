@@ -13,9 +13,19 @@ class CartViewModel(
 ) : ViewModel() {
     val listOfTheCart: MutableLiveData<Cart> = MutableLiveData()
 
+    init{
+        getCArt()
+    }
+
     fun addProduct(productId:String){
         viewModelScope.launch {
             listOfTheCart.value = repository.addProduct(productId)
+        }
+    }
+
+    fun getCArt(){
+        viewModelScope.launch {
+            listOfTheCart.value =repository.getCart()
         }
     }
 
