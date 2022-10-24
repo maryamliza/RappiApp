@@ -1,5 +1,6 @@
 package com.kamiz.rappiapp.data.remote
 
+import com.kamiz.rappiapp.data.model.Cart
 import com.kamiz.rappiapp.data.model.Category
 import com.kamiz.rappiapp.data.model.Product
 import com.kamiz.rappiapp.data.remote.responses.ForgotPasswordRequest
@@ -26,14 +27,14 @@ class RemoteDataSource(
 //            TODO: Remove when API ready
         } catch (e: Exception) {
             return listOf<Category>(
-                Category("Restaurante"),
-                Category("Supermercado"),
-                Category("Farmacia"),
-                Category("Turbo"),
-                Category("La Cesta Super"),
-                Category("RappiMall"),
-                Category("Licor"),
-                Category("Rappifavor"),
+                Category("Restaurante","https://www.recetasnestle.com.mx/sites/default/files/srh_recipes/a7a1dc0004804778ac64cb26b8217c5c.jpeg"),
+                Category("Supermercado","https://www.recetasnestle.com.mx/sites/default/files/srh_recipes/a7a1dc0004804778ac64cb26b8217c5c.jpeg"),
+                Category("Farmacia","https://www.recetasnestle.com.mx/sites/default/files/srh_recipes/a7a1dc0004804778ac64cb26b8217c5c.jpeg"),
+                Category("Turbo","https://www.recetasnestle.com.mx/sites/default/files/srh_recipes/a7a1dc0004804778ac64cb26b8217c5c.jpeg"),
+                Category("La Cesta Super","https://www.recetasnestle.com.mx/sites/default/files/srh_recipes/a7a1dc0004804778ac64cb26b8217c5c.jpeg"),
+                Category("RappiMall","https://www.recetasnestle.com.mx/sites/default/files/srh_recipes/a7a1dc0004804778ac64cb26b8217c5c.jpeg"),
+                Category("Licor","https://www.recetasnestle.com.mx/sites/default/files/srh_recipes/a7a1dc0004804778ac64cb26b8217c5c.jpeg"),
+                Category("Rappifavor","https://www.recetasnestle.com.mx/sites/default/files/srh_recipes/a7a1dc0004804778ac64cb26b8217c5c.jpeg"),
             )
         }
     }
@@ -48,14 +49,19 @@ class RemoteDataSource(
         } catch (e: java.lang.Exception) {
             return if (searchWord == "") listOf()
             else listOf<Product>(
-                Product("Gelatina roja"),
-                Product("Gelatina amarilla"),
-                Product("Gelatina verde"),
-                Product("Gelatina naranja"),
-                Product("Gelatina rosada"),
-                Product("Gelatina morada"),
+                Product("Gelatina roja","https://wongfood.vteximg.com.br/arquivos/ids/492695-1000-1000/frontal-146.jpg?v=637716658010600000"),
+                Product("Gelatina amarilla","https://wongfood.vteximg.com.br/arquivos/ids/492695-1000-1000/frontal-146.jpg?v=637716658010600000"),
+                Product("Gelatina verde","https://wongfood.vteximg.com.br/arquivos/ids/492695-1000-1000/frontal-146.jpg?v=637716658010600000"),
+                Product("Gelatina naranja","https://wongfood.vteximg.com.br/arquivos/ids/492695-1000-1000/frontal-146.jpg?v=637716658010600000"),
+                Product("Gelatina rosada","https://wongfood.vteximg.com.br/arquivos/ids/492695-1000-1000/frontal-146.jpg?v=637716658010600000"),
+                Product("Gelatina morada","https://wongfood.vteximg.com.br/arquivos/ids/492695-1000-1000/frontal-146.jpg?v=637716658010600000"),
             )
         }
+    }
+
+
+    suspend fun addProduct(productId:String): Cart {
+        return service.addProduct(productId)
     }
 
 

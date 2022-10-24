@@ -32,6 +32,12 @@ class HomeFragment : BaseFragment() {
         binding.search.setOnClickListener {
             findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToSearchFragment())
         }
+
+        binding.btCart.setOnClickListener{
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToCartFragment())
+        }
+
+
     }
 
 }

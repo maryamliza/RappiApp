@@ -1,6 +1,7 @@
 package com.kamiz.rappiapp.data
 
 import com.kamiz.rappiapp.data.local.LocalDataSource
+import com.kamiz.rappiapp.data.model.Cart
 import com.kamiz.rappiapp.data.model.Category
 import com.kamiz.rappiapp.data.model.Product
 import com.kamiz.rappiapp.data.remote.RemoteDataSource
@@ -33,5 +34,9 @@ class RappiRepository(
 
     suspend fun searchText(searchWord: String): List<Product> {
         return remote.searchText(searchWord)
+    }
+
+    suspend fun addProduct(productId:String): Cart {
+        return remote.addProduct(productId)
     }
 }

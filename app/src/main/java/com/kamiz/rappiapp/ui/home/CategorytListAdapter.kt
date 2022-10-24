@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.kamiz.rappiapp.data.model.Category
 import com.kamiz.rappiapp.databinding.ItemCategoryBinding
 
@@ -24,6 +25,9 @@ class CategorytListAdapter(
         val binding = holder.binding
 
         binding.categoryName.text = obj.name
+        Glide.with(binding.image.context)
+            .load(obj.image)
+            .into(binding.image)
 
     }
 
