@@ -11,31 +11,37 @@ import com.kamiz.rappiapp.data.remote.retrofit.ServiceAPI
 private val TEST_PRODUCT_1 = Product(
     "Gelatina roja",
     "https://wongfood.vteximg.com.br/arquivos/ids/492695-1000-1000/frontal-146.jpg?v=637716658010600000",
+    id = "1",
     price = 5.0,
 )
 private val TEST_PRODUCT_2 = Product(
     "Gelatina amarilla",
     "https://wongfood.vteximg.com.br/arquivos/ids/492695-1000-1000/frontal-146.jpg?v=637716658010600000",
+    id = "2",
     price = 5.0,
 )
 private val TEST_PRODUCT_3 = Product(
     "Gelatina verde",
     "https://wongfood.vteximg.com.br/arquivos/ids/492695-1000-1000/frontal-146.jpg?v=637716658010600000",
+    id = "3",
     price = 5.0,
 )
 private val TEST_PRODUCT_4 = Product(
     "Gelatina naranja",
     "https://wongfood.vteximg.com.br/arquivos/ids/492695-1000-1000/frontal-146.jpg?v=637716658010600000",
+    id = "4",
     price = 5.0,
 )
 private val TEST_PRODUCT_5 = Product(
     "Gelatina rosada",
     "https://wongfood.vteximg.com.br/arquivos/ids/492695-1000-1000/frontal-146.jpg?v=637716658010600000",
+    id = "5",
     price = 5.0,
 )
 private val TEST_PRODUCT_6 = Product(
     "Gelatina morada",
     "https://wongfood.vteximg.com.br/arquivos/ids/492695-1000-1000/frontal-146.jpg?v=637716658010600000",
+    id = "6",
     price = 5.0,
 )
 
