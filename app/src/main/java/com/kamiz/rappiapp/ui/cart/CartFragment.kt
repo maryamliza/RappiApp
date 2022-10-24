@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.kamiz.rappiapp.data.model.ProductItem
 import com.kamiz.rappiapp.databinding.FragmentCartBinding
@@ -23,13 +24,13 @@ class CartFragment : BaseFragment() {
     }
 
     override fun setupViews() {
-        val listProductItem = listOf<ProductItem>()
-        binding.rcCart.adapter = CartAdapter(
-            objList = listProductItem,
-            addProductItem = { productId ->
-                viewModel.addProduct(productId)
-            }
-        )
+//        val listProductItem = listOf<ProductItem>()
+//        binding.rcCart.adapter = CartAdapter(
+//            objList = listProductItem,
+//            addProductItem = { productId ->
+//                viewModel.addProduct(productId)
+//            }
+//        )
 
         binding.back.setOnClickListener {
             findNavController().popBackStack()
@@ -38,6 +39,9 @@ class CartFragment : BaseFragment() {
     }
 
     override fun setupObserver() {
+        viewModel.listOfTheCart.observe(viewLifecycleOwner, Observer {
+            binding.rcCart.adapter = CartAdapter(it.productItems)
+        })
     }
 
 }
