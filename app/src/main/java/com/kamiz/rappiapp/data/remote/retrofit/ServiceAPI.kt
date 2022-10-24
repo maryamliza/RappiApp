@@ -1,5 +1,6 @@
 package com.kamiz.rappiapp.data.remote.retrofit
 
+import com.kamiz.rappiapp.data.model.Cart
 import com.kamiz.rappiapp.data.model.Category
 import com.kamiz.rappiapp.data.model.Product
 import com.kamiz.rappiapp.data.remote.responses.ForgotPasswordRequest
@@ -26,5 +27,23 @@ interface ServiceAPI {
 
     @GET("search")
     suspend fun searchText(searchWord:String):List<Product>
+
+    @GET("cart")
+    suspend fun getCart(): Cart
+
+    @POST("cart/clear")
+    suspend fun clearCart(): Cart
+
+    /** Add 1 product to the cart */
+    @POST("cart/add_product")
+    suspend fun addProduct(productId:String): Cart
+
+    /** Remove only 1 product of the cart */
+    @POST("cart/remove_product")
+    suspend fun removeProduct(productId: String): Cart
+
+    @POST("cart/apply_coupon")
+    suspend fun applyCoupon(code:String): Cart
+
 
 }

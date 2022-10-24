@@ -6,6 +6,7 @@ import com.kamiz.rappiapp.data.local.preferences.PreferencesManager
 import com.kamiz.rappiapp.data.remote.RemoteDataSource
 import com.kamiz.rappiapp.data.remote.retrofit.RetrofitManager
 import com.kamiz.rappiapp.data.remote.retrofit.ServiceAPI
+import com.kamiz.rappiapp.ui.cart.CartViewModel
 import com.kamiz.rappiapp.ui.forgotpassword.ForgotPasswordViewModel
 import com.kamiz.rappiapp.ui.home.HomeViewModel
 import com.kamiz.rappiapp.ui.login.LoginViewModel
@@ -34,5 +35,6 @@ val viewModelsModule = module {
     viewModel { SplashViewModel(get()) }
     viewModel { NewUserViewModel(get()) }
     viewModel { SearchViewModel(get()) }
+    viewModel { CartViewModel(get()) }
 
 }

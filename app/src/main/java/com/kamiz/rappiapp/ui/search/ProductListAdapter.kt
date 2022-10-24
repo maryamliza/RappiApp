@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.kamiz.rappiapp.data.model.Category
 import com.kamiz.rappiapp.data.model.Product
 import com.kamiz.rappiapp.databinding.ItemCategoryBinding
@@ -24,9 +25,10 @@ class ProductListAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val obj = objList[position]
         val binding = holder.binding
-//        binding.categoryName.text = obj.name
-
-
+        binding.productName.text = obj.name
+        Glide.with(binding.image.context)
+            .load(obj.photoUrl)
+            .into(binding.image)
     }
 
     override fun getItemCount(): Int {
