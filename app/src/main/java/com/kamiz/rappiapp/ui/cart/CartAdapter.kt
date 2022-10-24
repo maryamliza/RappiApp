@@ -4,13 +4,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.kamiz.rappiapp.data.model.Cart
 import com.kamiz.rappiapp.data.model.ProductItem
 import com.kamiz.rappiapp.databinding.ItemCartBinding
 import com.kamiz.rappiapp.di.viewModelsModule
 
 class CartAdapter(
     val objList: List<ProductItem>,
-//    val addProductItem: (String) -> Unit,
+    val addProductItem: (String) -> Unit,
 //    val removeProductItem: (String) -> Unit,
 
 ) : RecyclerView.Adapter<CartAdapter.ViewHolder>() {
@@ -37,9 +38,8 @@ class CartAdapter(
         binding.price.text = "Price: $${finalPrice.toString()}"
 
         binding.btAdd.setOnClickListener{
-//            addProductItem(obj.product.id)
+            addProductItem(obj.product.id)
         }
-
     }
 
     override fun getItemCount(): Int {
