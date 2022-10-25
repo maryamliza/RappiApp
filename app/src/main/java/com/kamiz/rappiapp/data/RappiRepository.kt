@@ -43,4 +43,9 @@ class RappiRepository(
     suspend fun getCart(): Cart{
         return remote.getCart()
     }
+
+    suspend fun removeProduct(productId:String): Cart {
+        return remote.removeProduct(productId)
+    }
+
 }
