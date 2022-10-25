@@ -36,14 +36,14 @@ interface ServiceAPI {
 
     /** Add 1 product to the cart */
     @POST("cart/add_product")
-    suspend fun addProduct(productId:String): Cart
+    suspend fun addProduct(@Body productId:String): Cart
 
     /** Remove only 1 product of the cart */
     @POST("cart/remove_product")
-    suspend fun removeProduct(productId: String): Cart
+    suspend fun removeProduct(@Body productId: String): Cart
 
     @POST("cart/apply_coupon")
-    suspend fun applyCoupon(code:String): Cart
+    suspend fun applyCoupon(@Body code:String): Cart
 
 
 }

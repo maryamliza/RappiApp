@@ -12,7 +12,7 @@ import com.kamiz.rappiapp.di.viewModelsModule
 class CartAdapter(
     val objList: List<ProductItem>,
     val addProductItem: (String) -> Unit,
-//    val removeProductItem: (String) -> Unit,
+    val removeProductItem: (String) -> Unit,
 
 ) : RecyclerView.Adapter<CartAdapter.ViewHolder>() {
 
@@ -39,6 +39,10 @@ class CartAdapter(
 
         binding.btAdd.setOnClickListener{
             addProductItem(obj.product.id)
+        }
+
+        binding.btDecrease.setOnClickListener{
+            removeProductItem(obj.product.id)
         }
     }
 

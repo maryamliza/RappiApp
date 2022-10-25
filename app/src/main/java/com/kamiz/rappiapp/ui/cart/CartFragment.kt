@@ -23,7 +23,6 @@ class CartFragment : BaseFragment() {
     }
 
     override fun setupViews() {
-
         binding.back.setOnClickListener {
             findNavController().popBackStack()
         }
@@ -33,7 +32,8 @@ class CartFragment : BaseFragment() {
         viewModel.listOfTheCart.observe(viewLifecycleOwner, Observer {
             binding.rcCart.adapter = CartAdapter(
                 objList = it.productItems,
-                addProductItem = { id -> viewModel.addProduct(id) }
+                addProductItem = { productId -> viewModel.addProduct(productId) },
+                removeProductItem = {productId -> viewModel.removeProduct(productId)}
             )
         })
     }

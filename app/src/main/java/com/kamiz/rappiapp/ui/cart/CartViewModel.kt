@@ -29,4 +29,10 @@ class CartViewModel(
         }
     }
 
+    fun removeProduct(productId:String) {
+        viewModelScope.launch {
+            listOfTheCart.value = repository.removeProduct(productId)
+        }
+    }
+
 }
