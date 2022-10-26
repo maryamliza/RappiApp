@@ -66,5 +66,7 @@
     <fragment
         android:id="@+id/cartFragment"
         android:name="com.kamiz.rappiapp.ui.cart.CartFragment"
-        tools:layout="@layout/fragment_cart" />
+        tools:layout="@layout/fragment_cart" >
+    </fragment>
+
 </navigation>

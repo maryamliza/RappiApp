@@ -9,5 +9,7 @@
     <color name="lightGray">#F9F9F9</color>
     <color name="black">#222222</color>
     <color name="primary">#DB3022</color>
+    <color name="red">#DB3022</color>
+    <color name="green">#43A047</color>
 
 </resources>

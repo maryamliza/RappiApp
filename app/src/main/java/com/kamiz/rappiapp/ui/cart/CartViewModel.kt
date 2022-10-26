@@ -5,33 +5,38 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kamiz.rappiapp.data.RappiRepository
 import com.kamiz.rappiapp.data.model.Cart
-import com.kamiz.rappiapp.data.model.Product
 import kotlinx.coroutines.launch
 
 class CartViewModel(
     private val repository: RappiRepository,
 ) : ViewModel() {
-    val listOfTheCart: MutableLiveData<Cart> = MutableLiveData()
+    var listOfTheCart: MutableLiveData<Cart> = MutableLiveData()
 
-    init{
+    init {
         getCArt()
     }
 
-    fun addProduct(productId:String){
+    fun addProduct(productId: String) {
         viewModelScope.launch {
             listOfTheCart.value = repository.addProduct(productId)
         }
     }
 
-    fun getCArt(){
+    fun getCArt() {
         viewModelScope.launch {
-            listOfTheCart.value =repository.getCart()
+            listOfTheCart.value = repository.getCart()
         }
     }
 
-    fun removeProduct(productId:String) {
+    fun removeProduct(productId: String) {
         viewModelScope.launch {
             listOfTheCart.value = repository.removeProduct(productId)
+        }
+    }
+
+    fun clearCart() {
+        viewModelScope.launch {
+            listOfTheCart.value = repository.clearCart()
         }
     }
 
