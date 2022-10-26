@@ -109,7 +109,7 @@ class RemoteDataSource(
     suspend fun searchText(searchWord: String): List<Product> {
         try {
             return service.searchText(searchWord)
-        } catch (e: java.lang.Exception) {
+        } catch (e: Exception) {
             return if (searchWord == "") listOf()
             else listOf<Product>(
                 TEST_PRODUCT_1,
@@ -143,7 +143,7 @@ class RemoteDataSource(
     suspend fun getCart(): Cart {
         try {
             return service.getCart()
-        } catch (e: java.lang.Exception) {
+        } catch (e:Exception) {
             return Cart(
                 listOf<ProductItem>(
                     ProductItem(TEST_PRODUCT_1, 1),
@@ -170,6 +170,17 @@ class RemoteDataSource(
                     ProductItem(TEST_PRODUCT_4, 3),
                     ProductItem(TEST_PRODUCT_5, 4),
                     ProductItem(TEST_PRODUCT_6, 5),
+                )
+            )
+        }
+    }
+
+    suspend fun clearCart():Cart{
+        try {
+           return service.clearCart()
+        } catch(e:Exception){
+            return Cart(
+                listOf<ProductItem>(
                 )
             )
         }
