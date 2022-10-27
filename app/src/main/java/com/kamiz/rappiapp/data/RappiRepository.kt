@@ -5,6 +5,9 @@ import com.kamiz.rappiapp.data.model.Cart
 import com.kamiz.rappiapp.data.model.Category
 import com.kamiz.rappiapp.data.model.Product
 import com.kamiz.rappiapp.data.remote.RemoteDataSource
+import com.kamiz.rappiapp.data.remote.responses.AddProductRequest
+import com.kamiz.rappiapp.data.remote.responses.RemoveProductRequest
+import retrofit2.http.Body
 
 class RappiRepository(
     private val remote: RemoteDataSource,
@@ -40,6 +43,7 @@ class RappiRepository(
         return remote.addProduct(productId)
     }
 
+
     suspend fun getCart(): Cart{
         return remote.getCart()
     }
@@ -47,6 +51,7 @@ class RappiRepository(
     suspend fun removeProduct(productId:String): Cart {
         return remote.removeProduct(productId)
     }
+
 
     suspend fun clearCart(): Cart {
         return remote.clearCart()

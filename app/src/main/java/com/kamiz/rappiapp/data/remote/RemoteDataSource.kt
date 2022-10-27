@@ -4,9 +4,12 @@ import com.kamiz.rappiapp.data.model.Cart
 import com.kamiz.rappiapp.data.model.Category
 import com.kamiz.rappiapp.data.model.Product
 import com.kamiz.rappiapp.data.model.ProductItem
+import com.kamiz.rappiapp.data.remote.responses.AddProductRequest
 import com.kamiz.rappiapp.data.remote.responses.ForgotPasswordRequest
 import com.kamiz.rappiapp.data.remote.responses.LoginRequest
+import com.kamiz.rappiapp.data.remote.responses.RemoveProductRequest
 import com.kamiz.rappiapp.data.remote.retrofit.ServiceAPI
+import retrofit2.http.Body
 
 private val TEST_PRODUCT_1 = Product(
     "Gelatina roja",
@@ -67,35 +70,35 @@ class RemoteDataSource(
         } catch (e: Exception) {
             return listOf<Category>(
                 Category(
-                    "Restaurante",
+                    "Abarrotes",
                     "https://www.recetasnestle.com.mx/sites/default/files/srh_recipes/a7a1dc0004804778ac64cb26b8217c5c.jpeg"
                 ),
                 Category(
-                    "Supermercado",
+                    "Desayunos",
                     "https://www.recetasnestle.com.mx/sites/default/files/srh_recipes/a7a1dc0004804778ac64cb26b8217c5c.jpeg"
                 ),
                 Category(
-                    "Farmacia",
+                    "Lacteos",
                     "https://www.recetasnestle.com.mx/sites/default/files/srh_recipes/a7a1dc0004804778ac64cb26b8217c5c.jpeg"
                 ),
                 Category(
-                    "Turbo",
+                    "Fiambres",
                     "https://www.recetasnestle.com.mx/sites/default/files/srh_recipes/a7a1dc0004804778ac64cb26b8217c5c.jpeg"
                 ),
                 Category(
-                    "La Cesta Super",
+                    "Congelados",
                     "https://www.recetasnestle.com.mx/sites/default/files/srh_recipes/a7a1dc0004804778ac64cb26b8217c5c.jpeg"
                 ),
                 Category(
-                    "RappiMall",
+                    "Carnes",
                     "https://www.recetasnestle.com.mx/sites/default/files/srh_recipes/a7a1dc0004804778ac64cb26b8217c5c.jpeg"
                 ),
                 Category(
-                    "Licor",
+                    "Frutas y Verduras",
                     "https://www.recetasnestle.com.mx/sites/default/files/srh_recipes/a7a1dc0004804778ac64cb26b8217c5c.jpeg"
                 ),
                 Category(
-                    "Rappifavor",
+                    "Panaderia",
                     "https://www.recetasnestle.com.mx/sites/default/files/srh_recipes/a7a1dc0004804778ac64cb26b8217c5c.jpeg"
                 ),
             )
@@ -125,7 +128,8 @@ class RemoteDataSource(
 
     suspend fun addProduct(productId: String): Cart {
         try {
-            return service.addProduct(productId)
+            val body = AddProductRequest(productId = productId)
+            return service.addProduct(body)
         } catch (e: Exception) {
             return Cart(
                 listOf<ProductItem>(
@@ -139,6 +143,7 @@ class RemoteDataSource(
             )
         }
     }
+
 
     suspend fun getCart(): Cart {
         try {
@@ -160,7 +165,8 @@ class RemoteDataSource(
 
     suspend fun removeProduct(productId: String): Cart {
         try {
-            return service.removeProduct(productId)
+            val body = RemoveProductRequest(productId)
+            return service.removeProduct(body)
         } catch (e: Exception) {
             return Cart(
                 listOf<ProductItem>(
@@ -174,6 +180,7 @@ class RemoteDataSource(
             )
         }
     }
+
 
     suspend fun clearCart():Cart{
         try {
