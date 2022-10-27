@@ -3,13 +3,12 @@ package com.kamiz.rappiapp.data.remote.retrofit
 import com.kamiz.rappiapp.data.model.Cart
 import com.kamiz.rappiapp.data.model.Category
 import com.kamiz.rappiapp.data.model.Product
-import com.kamiz.rappiapp.data.remote.responses.ForgotPasswordRequest
-import com.kamiz.rappiapp.data.remote.responses.LoginRequest
-import com.kamiz.rappiapp.data.remote.responses.LoginResponse
+import com.kamiz.rappiapp.data.remote.responses.*
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Query
 
 interface ServiceAPI {
     @POST("login")
@@ -23,10 +22,10 @@ interface ServiceAPI {
     suspend fun getCategories(): List<Category>
 
     @POST("signup")
-    suspend fun createNewUser():Response<Any>
+    suspend fun createNewUser(): Response<Any>
 
     @GET("search")
-    suspend fun searchText(searchWord:String):List<Product>
+    suspend fun searchText(@Query("product") searchWord: String): List<Product>
 
     @GET("cart")
     suspend fun getCart(): Cart
@@ -36,14 +35,13 @@ interface ServiceAPI {
 
     /** Add 1 product to the cart */
     @POST("cart/add_product")
-    suspend fun addProduct(@Body productId:String): Cart
+    suspend fun addProduct(@Body body: AddProductRequest): Cart
 
     /** Remove only 1 product of the cart */
     @POST("cart/remove_product")
-    suspend fun removeProduct(@Body productId: String): Cart
+    suspend fun removeProduct(@Body body: RemoveProductRequest): Cart
 
     @POST("cart/apply_coupon")
-    suspend fun applyCoupon(@Body code:String): Cart
-
+    suspend fun applyCoupon(@Body body: ApplyCouponRequest): Cart
 
 }

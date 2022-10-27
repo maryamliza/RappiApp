@@ -5,6 +5,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kamiz.rappiapp.data.RappiRepository
 import com.kamiz.rappiapp.data.model.Cart
+import com.kamiz.rappiapp.data.remote.responses.AddProductRequest
+import com.kamiz.rappiapp.data.remote.responses.RemoveProductRequest
 import kotlinx.coroutines.launch
 
 class CartViewModel(
@@ -22,6 +24,7 @@ class CartViewModel(
         }
     }
 
+
     fun getCArt() {
         viewModelScope.launch {
             listOfTheCart.value = repository.getCart()
@@ -33,6 +36,7 @@ class CartViewModel(
             listOfTheCart.value = repository.removeProduct(productId)
         }
     }
+
 
     fun clearCart() {
         viewModelScope.launch {
