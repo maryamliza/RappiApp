@@ -12,7 +12,9 @@ import com.kamiz.rappiapp.databinding.ItemProductBinding
 
 class ProductListAdapter(
     val objList: List<Product>,
-) : RecyclerView.Adapter<ProductListAdapter.ViewHolder>() {
+    val addProductItem: (String) -> Unit,
+
+    ) : RecyclerView.Adapter<ProductListAdapter.ViewHolder>() {
 
     class ViewHolder(val binding: ItemProductBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -29,6 +31,10 @@ class ProductListAdapter(
         Glide.with(binding.image.context)
             .load(obj.photoUrl)
             .into(binding.image)
+
+        binding.btAdd.setOnClickListener {
+            addProductItem(obj.id)
+        }
     }
 
     override fun getItemCount(): Int {

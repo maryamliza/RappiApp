@@ -146,12 +146,12 @@ class RemoteDataSource(
         } catch (e:Exception) {
             return Cart(
                 listOf<ProductItem>(
-                    ProductItem(TEST_PRODUCT_1, 1),
-                    ProductItem(TEST_PRODUCT_2, 2),
-                    ProductItem(TEST_PRODUCT_3, 3),
-                    ProductItem(TEST_PRODUCT_4, 4),
-                    ProductItem(TEST_PRODUCT_5, 5),
-                    ProductItem(TEST_PRODUCT_6, 6),
+//                    ProductItem(TEST_PRODUCT_1, 1),
+//                    ProductItem(TEST_PRODUCT_2, 2),
+//                    ProductItem(TEST_PRODUCT_3, 3),
+//                    ProductItem(TEST_PRODUCT_4, 4),
+//                    ProductItem(TEST_PRODUCT_5, 5),
+//                    ProductItem(TEST_PRODUCT_6, 6),
                 )
             )
         }
